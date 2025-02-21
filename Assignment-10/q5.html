@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            background-color: white;
+            color: black;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Choose a Theme</h1>
+        <button id="darkModeBtn">Dark Mode</button>
+        <button id="lightModeBtn">Light Mode</button>
+    </div>
+
+    <script>
+        document.getElementById('darkModeBtn').addEventListener('click', () => {
+            document.body.style.backgroundColor = 'black';
+            document.body.style.color = 'white';
+        });
+
+        document.getElementById('lightModeBtn').addEventListener('click', () => {
+            document.body.style.backgroundColor = 'white';
+            document.body.style.color = 'black';
+        });
+    </script>
+</body>
+</html>

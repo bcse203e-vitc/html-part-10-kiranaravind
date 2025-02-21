@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country-State Selection</title>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country-State Selection</title>
+</head>
+<body>
+    <h1>Country-State Selector</h1>
+    <label for="country">Country:</label>
+    <select id="country">
+        <option value="USA">USA</option>
+        <option value="India">India</option>
+        <option value="UK">UK</option>
+    </select>
+    
+    <label for="state">State:</label>
+    <select id="state"></select>
+
+    <script>
+        const countrySelect = document.getElementById('country');
+        const stateSelect = document.getElementById('state');
+
+        const states = {
+            USA: ['California', 'Texas', 'New York'],
+            India: ['Maharashtra', 'Karnataka', 'Delhi'],
+            UK: ['England', 'Scotland', 'Wales']
+        };
+
+        countrySelect.addEventListener('change', () => {
+            const country = countrySelect.value;
+            stateSelect.innerHTML = ''; 
+
+            states[country].forEach(state => {
+                const option = document.createElement('option');
+                option.value = state;
+                option.textContent = state;
+                stateSelect.appendChild(option);
+            });
+        });
+
+        countrySelect.dispatchEvent(new Event('change'));
+    </script>
+</body>
+</html>
+
+</html>

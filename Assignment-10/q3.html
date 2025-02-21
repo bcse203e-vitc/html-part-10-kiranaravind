@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Order Form</title>
+</head>
+<body>
+    <h1>Pizza Order</h1>
+    <form id="pizzaForm">
+        <fieldset>
+            <legend>Pizza Size</legend>
+            <label><input type="radio" name="size" value="Small"> Small</label>
+            <label><input type="radio" name="size" value="Medium"> Medium</label>
+            <label><input type="radio" name="size" value="Large"> Large</label>
+        </fieldset>
+        <fieldset>
+            <legend>Toppings</legend>
+            <label><input type="checkbox" name="toppings" value="Cheese"> Cheese</label>
+            <label><input type="checkbox" name="toppings" value="Pepperoni"> Pepperoni</label>
+            <label><input type="checkbox" name="toppings" value="Mushrooms"> Mushrooms</label>
+            <label><input type="checkbox" name="toppings" value="Olives"> Olives</label>
+        </fieldset>
+        <button type="submit">Submit Order</button>
+    </form>
+
+    <h3>Your Order Summary:</h3>
+    <p id="orderSummary"></p>
+
+    <script>
+        document.getElementById('pizzaForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const size = formData.get('size');
+            const toppings = formData.getAll('toppings');
+
+            const orderSummary = `Pizza Size: ${size} <br> Toppings: ${toppings.join(', ')}`;
+            document.getElementById('orderSummary').innerHTML = orderSummary;
+        });
+    </script>
+</body>
+</html>

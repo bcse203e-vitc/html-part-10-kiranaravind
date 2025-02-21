@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+</head>
+<body>
+    <h1>Multiplication Table Generator</h1>
+    <form id="tableForm">
+        <fieldset>
+            <legend>Enter a Number</legend>
+            <input type="number" id="number" placeholder="Enter a number" required>
+            <button type="submit">Generate Table</button>
+        </fieldset>
+    </form>
+
+    <h2>Multiplication Table:</h2>
+    <table id="table" border="1"></table>
+
+    <script>
+        document.getElementById('tableForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const number = document.getElementById('number').value;
+            const table = document.getElementById('table');
+            table.innerHTML = '';  // Clear the previous table
+
+            for (let i = 1; i <= 10; i++) {
+                const row = table.insertRow();
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                cell1.innerText = `${number} x ${i}`;
+                cell2.innerText = number * i;
+            }
+        });
+    </script>
+</body>
+</html>
